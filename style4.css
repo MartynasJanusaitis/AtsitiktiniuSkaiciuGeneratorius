@@ -1,0 +1,127 @@
+@font-face {
+    font-family: textBold;
+    src: url(fonts/Chaloops\ W00\ Bd.ttf);
+  }
+@font-face {
+    font-family: textRegular;
+    src: url(fonts/Chaloops\ W00\ Bd.ttf);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #181818; 
+}
+::-webkit-scrollbar-thumb {
+    background: #0e0e0e; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0e0e0e; 
+}
+.mainBoard {
+    margin-bottom: 20%;
+}
+button{
+    outline: none;
+    font-family: textRegular;
+    background-color: rgba(0, 0, 0, 0);
+    color: #eeeeee;
+}
+button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+button:active{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.generatorButton{
+    border: solid;
+    border-width: 3px;
+    border-color: #eeeeee;
+    display: block;
+    margin: 15px;
+    width: 7em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+    padding: 10px 10px;
+}
+.generatorNum {
+    font-size: 3em;
+    text-align: center;
+    font-family: textRegular;
+    color: #eeeeee;
+}
+.generatorSettings{
+    font-size: 1em;
+    margin: auto;
+    width: 20em;
+    text-align: center;
+    font-family: textRegular;
+    color: #eeeeee;
+}
+input{
+    outline: none;
+    color: #eeeeee;
+    border: solid;
+    border-width: 3px;
+    border-radius: 0em;
+    text-align: center;
+    font-family: textRegular;
+    width: 3em;
+    margin: 0em 0.3em 0em 0.3em;
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0);
+}
+input:focus {
+    background-color: #0e0e0e;
+}
+.toolbar {
+    left: 0;
+    padding: 5px 0px 5px 55%;
+    height: 3.5em;
+    width: 100%;
+    background-color: #111111;
+    position: fixed;
+    bottom: 0;
+}
+
+.toolbarButton{
+    border: none;
+    display: inline-block;
+    margin: 0.1em;
+    font-size: 2em;
+    width: 1.4em;
+    height: 1.4em;
+    padding: 0;
+}
+.gradient {
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .93) 15%, rgba(0, 0, 0, .93) 85%, rgba(0, 0, 0, 0));
+}
+body {
+    background-image: URL("Images/background2.jpg");
+}
+h1 {
+    text-align: center;
+    color: #eeeeee;
+    font-family: textBold;
+}
+#gen2.generatorMain {
+    display: none;
+}
+#gen3.generatorMain {
+    display: none;
+}
+#gen4.generatorMain {
+    display: none;
+}
+

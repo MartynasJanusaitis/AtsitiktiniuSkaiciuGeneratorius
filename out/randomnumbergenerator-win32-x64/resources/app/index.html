@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style1.css">
+    <title>Atsitiktinių skaičių generatorius 5000</title>
+  </head>
+  <body>
+    <div class="gradient">
+    </div>
+    <div class="header">
+      <h1>Atsitiktinių Skaičių Generatorius 5000</h1>
+    </div>
+    <div class="mainBoard">
+      <div class="topRow">
+        <div class="generatorMain" id="gen1">
+          <div class ="generatorNum" id="gen1">-</div>
+          <div class ="generatorSettings">
+            Nuo
+            <input type="text" class ="generatorMin" id="gen1" maxlength="4" value="1">
+            iki
+            <input type="text" class ="generatorMax" id="gen1" maxlength="4" value="24">
+          </div>
+          <button class ="generatorButton" onclick="generate(1)">Generuoti</button>
+        </div>
+        <div class="generatorMain" id="gen2">
+          <div class ="generatorNum" id="gen2">-</div>
+          <div class ="generatorSettings">
+            Nuo
+            <input type="text" class ="generatorMin" id="gen2" maxlength="4" value="1">
+            iki
+            <input type="text" class ="generatorMax" id="gen2" maxlength="4" value="24">
+          </div>
+          <button class ="generatorButton" onclick="generate(2)">Generuoti</button>
+        </div>
+        <div class="generatorMain" id="gen3">
+          <div class ="generatorNum" id="gen3">-</div>
+          <div class ="generatorSettings">
+            Nuo
+            <input type="text" class ="generatorMin" id="gen3" maxlength="4" value="1">
+            iki
+            <input type="text" class ="generatorMax" id="gen3" maxlength="4" value="24">
+          </div>
+          <button class ="generatorButton" onclick="generate(3)">Generuoti</button>
+        </div>
+        <div class="generatorMain" id="gen4">
+          <div class ="generatorNum" id="gen4">-</div>
+          <div class ="generatorSettings">
+            Nuo
+            <input type="text" class ="generatorMin" id="gen4" maxlength="4" value="1">
+            iki
+            <input type="text" class ="generatorMax" id="gen4" maxlength="4" value="24">
+          </div>
+          <button class ="generatorButton" onclick="generate(4)">Generuoti</button>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="signingName">3 Bentley</div>
+      <button onclick="removeGenerator()" class="toolbarButton"></buttononclick>-</button>
+      <button onclick="addGenerator()" class="toolbarButton"></buttononclick>+</button>
+      <button onclick="changeTheme()" class="toolbarButton"></buttononclick>🖌</button>
+    </div>
+  </body>
+  <script>
+    let activeGenerator = 2, activeTheme = 0;
+    const nums = [0, 0, 0, 0];
+    const pastNums = [];
+    const themes = ["style1.css", "style2.css", "style3.css"];
+    function sleep(ms) {
+      return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+      });
+    }
+    async function generate(i)
+    {
+      if (pastNums.length > 7) pastNums.fill(-1);
+      console.log("Past nums: ", pastNums);
+      valMin = parseInt(document.getElementById("gen" + i).getElementsByClassName("generatorMin")[0].value);
+      valMax = parseInt(document.getElementById("gen" + i).getElementsByClassName("generatorMax")[0].value);
+      //console.log(valMin, valMax);
+      let x = 0;
+      while (true)
+      {
+        x++;
+        if(x > 20)
+        {
+          pastNums.fill(-1);
+          break;
+        }
+        found = false;
+        num = generateRandom(valMin, valMax);
+        pastNums.forEach(i => {
+          (i in pastNums)
+          {
+            if(i == num) found = true;
+          }
+        }); 
+        if(!found) break;
+      }
+      nums[i] = num;
+      pastNums.push(num);
+      n = Math.floor(Math.random() * (10 + 1 - 3) + 10);
+
+      for(let y = 0; y < n; y++)
+      {
+        document.getElementById("gen" + i).getElementsByClassName("generatorNum")[0].innerHTML = Math.floor(Math.random() * (valMax + 1 - valMin) + valMin);
+        await sleep(50)
+      }
+      document.getElementById("gen" + i).getElementsByClassName("generatorNum")[0].innerHTML = nums[i];
+    }
+    function addGenerator()
+    {
+      if(activeGenerator < 4)
+      {
+        activeGenerator++;
+        console.log("gen" + activeGenerator);
+        document.getElementById("gen" + activeGenerator).style.display = "block";
+      }
+    }
+    function removeGenerator()
+    {
+      if(activeGenerator > 0)
+      {
+        document.getElementById("gen" + activeGenerator).style.display = "none";
+        console.log("gen" + activeGenerator);
+        activeGenerator--;
+      }
+    }
+    function changeTheme()
+    {
+      activeTheme++;
+      if(activeTheme >= themes.length) activeTheme = 0;
+      var oldlink = document.getElementsByTagName("link").item(0);
+      var newlink = oldlink;
+      newlink.setAttribute("href", themes[activeTheme]);
+
+      document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    }
+    function generateRandom(min, max) {
+      const array = new Uint16Array(1);
+      self.crypto.getRandomValues(array);
+      console.log(array[0]);
+      rng = Math.floor((array[0] / 65536) * (max + 1 - min) + min);
+      console.log(rng);
+      return rng;
+    }
+
+
+  </script>
+</html>

@@ -1,0 +1,131 @@
+@font-face {
+    font-family: textBold;
+    src: url(fonts/LEMONMILK-Bold.otf);
+  }
+@font-face {
+    font-family: textRegular;
+    src: url(fonts/LEMONMILK-Regular.otf);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #181818; 
+}
+::-webkit-scrollbar-thumb {
+    background: #0e0e0e; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0e0e0e; 
+}
+
+.mainBoard {
+    margin-bottom: 20%;
+}
+
+button{
+    outline: none;
+    font-family: textRegular;
+    background-color: #181818;
+    color: #eeeeee;
+    border: none;
+}
+button:hover{
+    background-color: #141414;
+}
+button:active{
+    background-color: #0e0e0e;
+}
+.generatorButton{
+    display: block;
+    margin: 15px;
+    width: 7em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+    padding: 10px 10px;
+}
+
+
+.generatorNum {
+    font-size: 3em;
+    text-align: center;
+    font-family: textRegular;
+    color: #eeeeee;
+}
+
+.generatorSettings{
+    font-size: 1em;
+    margin: auto;
+    width: 20em;
+    text-align: center;
+    font-family: textRegular;
+    color: #eeeeee;
+}
+
+input{
+    outline: none;
+    color: #eeeeee;
+    border: 0;
+    border-radius: 1em;
+    text-align: center;
+    width: 3em;
+    margin: 0em 0.3em 0em 0.3em;
+    font-size: 1.5em;
+    background-color: #181818;
+}
+input:focus {
+    background-color: #0e0e0e;
+}
+
+.toolbar {
+    padding: 5px 0px 5px 55%;
+    height: 3.5em;
+    width: 100%;
+    background-color: #111111;
+    position: fixed;
+    bottom: 0;
+}
+
+.toolbarButton{
+    display: inline-block;
+    margin: 0.1em;
+    font-size: 2em;
+    width: 1.4em;
+    height: 1.4em;
+    padding: 0;
+}
+
+.gradien{
+    display: none;
+}
+
+body {
+    background-color: #111111;
+}
+
+h1 {
+    text-align: center;
+    color: #eeeeee;
+    font-family: textBold;
+}
+#gen2.generatorMain {
+    display: none;
+}
+#gen3.generatorMain {
+    display: none;
+}
+
+#gen4.generatorMain {
+    display: none;
+}
+
+.signingName {
+    color: #eeeeee;
+    position: fixed;
+    bottom: 1.5em;
+    left: 1.5em;
+    font-family: textRegular;
+}
